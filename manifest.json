@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "解锁谷歌翻译 (Unlock Google Translate)",
+  "version": "1.0.0",
+  "description": "自动移除网页的 translate=\"no\" 和 notranslate 限制，让 Chrome 内置谷歌翻译正常生效。",
+  "permissions": ["storage"],
+  "icons": {
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_title": "解锁谷歌翻译",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

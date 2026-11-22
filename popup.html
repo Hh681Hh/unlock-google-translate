@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 260px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+      color: #111827;
+      background: #ffffff;
+    }
+    .title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 12px;
+    }
+    .label {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .switch {
+      position: relative;
+      width: 40px;
+      height: 22px;
+      display: inline-block;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #cbd5e1;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 2px;
+      top: 2px;
+      background: #ffffff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    input:checked + .slider {
+      background: #2563eb;
+    }
+    input:checked + .slider::before {
+      transform: translateX(18px);
+    }
+    .btn {
+      width: 100%;
+      border: none;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+    .status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #4b5563;
+      min-height: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">🔓 解锁谷歌翻译</div>
+  <div class="row">
+    <span class="label">自动解锁所有网页</span>
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked />
+      <span class="slider"></span>
+    </label>
+  </div>
+  <button class="btn" id="cleanBtn" type="button">立即解锁当前页</button>
+  <div class="status" id="status">已开启自动解锁</div>
+  <script src="popup.js"></script>
+</body>
+</html>
